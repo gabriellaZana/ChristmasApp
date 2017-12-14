@@ -3,7 +3,7 @@
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
-__pycache__/
+__pycache__/*
 *.py[cod]
 *$py.class
 
@@ -103,5 +103,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+config.py
 
 # End of https://www.gitignore.io/api/python
