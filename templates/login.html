@@ -1,21 +1,102 @@
 <!DOCTYPE html>
 <html >
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="/static/css/style.css">
-
+  <script type="text/javascript" src="{{url_for('static',filename='script.js') }}" defer></script>
+  <meta charset="utf-8">
+  
+  <title>Login</title>
   
 </head>
 
 <body>
-    <nav id="navbar" class="navbar navbar-dark bg-dark" data-userid="{{user_id}}">
-        <a class="navbar-brand" href="/">App for Our Life</a>
+
+    <nav class="navbar navbar-default" role="navigation" id="navbar" data-userid="{{user_id}}">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" 
+          data-target="#example-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">App for Our Life</a>
+      </div>
+      <div class="collapse navbar-collapse" id="example-navbar-collapse">
+          <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Planet list</a></li>
+          <li class="active"><a href="#">Something</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" data-toggle="modal" data-target=".login-register-form">Registration / Login</a></li>
+          </ul>
+      </div>
     </nav>
+
+  
+
+    <div class="container">
+      <div class="row">
+            <div class="modal fade login-register-form" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#login-form"> Login <span class="glyphicon glyphicon-user"></span></a></li>
+                                <li><a data-toggle="tab" href="#registration-form"> Register <span class="glyphicon glyphicon-pencil"></span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="tab-content">
+                                <div id="login-form" class="tab-pane fade in active">
+                                    <form action="/login" method="POST">
+                                        <div class="form-group">
+                                            <label for="username">Username:</label>
+                                            <input type="username" class="form-control" id="username" placeholder="Enter username..." name="username">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pwd">Password:</label>
+                                            <input type="password" class="form-control" id="pwd" placeholder="Enter password..." name="pwd">
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Login</button>
+                                    </form>
+                                </div>
+
+                                <div id="registration-form" class="tab-pane fade">
+                                    <form action="/" method="POST">
+                                        <div class="form-group">
+                                            <label for="name">Your chosen username:</label>
+                                            <input type="text" class="form-control" id="name" placeholder="Enter your username..." name="name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="newemail">Email:</label>
+                                            <input type="email" class="form-control" id="newemail" placeholder="Enter your email..." name="newemail">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="newpwd">Password:</label>
+                                            <input type="password" class="form-control" id="newpwd" placeholder="Enter your password..." name="newpwd">
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Register</button>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
+
+  
     <!-- <div class="wrapper">
     <form action="/" method="post" class="form-signin">       
       <h2 class="form-signin-heading">Please login</h2>
